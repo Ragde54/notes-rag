@@ -11,21 +11,11 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
         extra="ignore",
     )
-
-    # Database
-    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/notes_rag"
-
-    # Notes
-    NOTES_DIR: str = "/path/to/your/files"
-
-    # Embedding model
+    DATABASE_URL: str = ""
+    NOTES_DIR: str = "."
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
-
-    # Ollama
     OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_MODEL: str = "llama3.2"
-
-    # RAG parameters
     CHUNK_SIZE: int = 512
     CHUNK_OVERLAP: int = 64
     TOP_K: int = 5

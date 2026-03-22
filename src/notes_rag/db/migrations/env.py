@@ -1,6 +1,6 @@
 from logging.config import fileConfig
 
-from alembic import context
+from alembic import context  # type: ignore[attr-defined]
 from sqlalchemy import engine_from_config, pool
 
 # this is the Alembic Config object, which provides
@@ -38,7 +38,7 @@ def run_migrations_offline() -> None:
     """
     from notes_rag.config import settings
 
-    url = settings.database_url
+    url = settings.DATABASE_URL
 
     context.configure(
         url=url,

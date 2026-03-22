@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS chunks (
     embedding   vector(384),            -- 384 for all-MiniLM-L6-v2
     strategy    TEXT NOT NULL,          -- 'recursive' | 'semantic'
     created_at  TIMESTAMPTZ DEFAULT now(),
-    UNIQUE (source, chunk_index, strategy)
+    UNIQUE (source, chunk_index, strategy) -- prevents duplicate chunks
 );
 
 CREATE INDEX ON chunks USING ivfflat (embedding vector_cosine_ops)
